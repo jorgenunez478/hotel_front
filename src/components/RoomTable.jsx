@@ -20,8 +20,8 @@ const RoomTable = ({ rooms, onEdit, onDelete }) => {
               <td>{room.room_type_id }</td>
               <td>{room.accommodation_id }</td>
               <td>
-                <Button className='mr-1' variant="primary" onClick={() => onEdit(room)}>Edit</Button>
-                <Button variant="danger" onClick={() => onDelete(room.id)}>Delete</Button>
+                <Button className='me-2' variant="outline-primary" onClick={() => onEdit(room)}>Edit</Button>
+                <Button variant="outline-info" onClick={() => onDelete(room.id)}>Delete</Button>
               </td>
             </tr>
           ))}

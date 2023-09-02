@@ -4,13 +4,13 @@ const HotelTable = ({ hotels, onEdit, onDelete }) => {
 
 return (
     <div className="table-responsive">
-        <Table className='mt-5' striped bordered hover responsive="sm" >
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Actions</th>
-            </tr>
+        <Table className='mt-5 table' striped bordered hover responsive="sm" >
+            <thead className="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Actions</th>
+                </tr>
             </thead>
             <tbody>
             {hotels.map(hotel => (
@@ -18,8 +18,8 @@ return (
                 <td>{hotel.name}</td>
                 <td>{hotel.address}</td>
                 <td>
-                    <Button className='mr-1' variant="primary" onClick={() => onEdit(hotel)}>Edit</Button>
-                    <Button variant="danger" onClick={() => onDelete(hotel.id)}>Delete</Button>
+                    <Button className='me-1' variant="outline-primary" onClick={() => onEdit(hotel)}>Edit</Button>
+                    <Button variant="outline-info" onClick={() => onDelete(hotel.id)}>Delete</Button>
                 </td>
                 </tr>
             ))}

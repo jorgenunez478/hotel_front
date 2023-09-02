@@ -74,12 +74,12 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App container">
       {alertShow &&
         <Toast message={alertMessage} variant={alertVariant} />
       }
-      <h1>Hotel Management App</h1>
-      <button className="btn btn-success mt-5" onClick={() => { setSelectedHotel(null); setModalShow(true); }}>Add Hotel</button>
+      <h1><strong>Hotel Management App</strong></h1>
+      <button className="btn  btn-outline-primary mt-5" onClick={() => { setSelectedHotel(null); setModalShow(true); }}>Add Hotel</button>
       <HotelTable hotels={hotels} onEdit={handleEdit} onDelete={handleDelete} />
       <HotelFormModal show={modalShow} onHide={() => setModalShow(false)} onSave={handleSave} hotel={selectedHotel}/>
     </div>

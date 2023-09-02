@@ -89,48 +89,49 @@ const HotelFormModal = ({ show, onHide, onSave, hotel }) => {
 
 
   return (
-    <Modal show={show} onHide={onHide}>
+    <Modal show={show} fullscreen={true} onHide={onHide}>
       <Modal.Header closeButton>
         <Modal.Title>{hotel ? 'Edit Hotel' : 'Add Hotel'}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form>
-          <Form.Group controlId="formName">
-            <Form.Label>Name</Form.Label>
-            <Form.Control required type="text" value={name} onChange={e => setName(e.target.value)} />
-          </Form.Group>
-          <Form.Group controlId="formCity">
-            <Form.Label>City</Form.Label>
-            <Form.Control as="select" value={city_id} onChange={e => setCity(e.target.value)}>
-              <option value="default">-- select option --</option>
-                {cities.map((city)=>{
-                    return <option value={city.id}>{city.city}</option>
-                })};
-            </Form.Control>
-          </Form.Group>
-          <Form.Group controlId="formAddress">
-            <Form.Label>Address</Form.Label>
-            <Form.Control required type="text" value={address} onChange={e => setAddress(e.target.value)} />
-          </Form.Group>
-          <Form.Group controlId="formNit">
-            <Form.Label>Nit</Form.Label>
-            <Form.Control required type="text" value={nit} onChange={e => setNit(e.target.value)} />
-          </Form.Group>
-          <Form.Group controlId="formNumRooms">
-            <Form.Label>Number rooms</Form.Label>
-            <Form.Control required type="text" value={number_rooms} onChange={e => setNumRooms(e.target.value)} />
-          </Form.Group>
-        </Form>
-        {hotel && 
-            <div>
-                <RoomForm onSaveRoom={onSaveRoom} room={selectedRoom} hotel={hotel} />
-                <RoomTable rooms={rooms} onEdit={handleEditRoom} onDelete={handleDeleteRoom} />
-            </div>
-        }
-        
+        <div className='container'>
+            <Form >
+            <Form.Group controlId="formName">
+                <Form.Label>Name</Form.Label>
+                <Form.Control required type="text" value={name} onChange={e => setName(e.target.value)} />
+            </Form.Group>
+            <Form.Group controlId="formCity">
+                <Form.Label>City</Form.Label>
+                <Form.Control as="select" value={city_id} onChange={e => setCity(e.target.value)}>
+                <option value="default">-- select option --</option>
+                    {cities.map((city)=>{
+                        return <option value={city.id}>{city.city}</option>
+                    })};
+                </Form.Control>
+            </Form.Group>
+            <Form.Group controlId="formAddress">
+                <Form.Label>Address</Form.Label>
+                <Form.Control required type="text" value={address} onChange={e => setAddress(e.target.value)} />
+            </Form.Group>
+            <Form.Group controlId="formNit">
+                <Form.Label>Nit</Form.Label>
+                <Form.Control required type="text" value={nit} onChange={e => setNit(e.target.value)} />
+            </Form.Group>
+            <Form.Group controlId="formNumRooms">
+                <Form.Label>Number rooms</Form.Label>
+                <Form.Control required type="text" value={number_rooms} onChange={e => setNumRooms(e.target.value)} />
+            </Form.Group>
+            </Form>
+            {hotel && 
+                <div>
+                    <RoomForm onSaveRoom={onSaveRoom} room={selectedRoom} hotel={hotel} />
+                    <RoomTable rooms={rooms} onEdit={handleEditRoom} onDelete={handleDeleteRoom} />
+                </div>
+            }
+        </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={onHide}>Cancel</Button>
+        <Button variant="success" onClick={onHide}>Cancel</Button>
         <Button variant="primary" onClick={handleSave}>Save</Button>
       </Modal.Footer>
     </Modal>

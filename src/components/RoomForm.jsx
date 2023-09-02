@@ -77,7 +77,7 @@ const HotelFormModal = ({ onSaveRoom, room, hotel }) => {
               })};
           </Form.Control>
         </Form.Group>
-        <Button className='mt-3 me-2' variant="secondary" onClick={handleCancel}>Cancel</Button>
+        <Button className='mt-3 me-2' variant="success" onClick={handleCancel}>Cancel</Button>
         <Button className='mt-3' variant="primary" onClick={handleSaveRoom}>Save</Button>
     </Form>        
   );
